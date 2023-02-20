@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    use HasFactory;
+    public function category(){
+        return $this->hasOne(Category::class,'id','category_id');
+}
 }

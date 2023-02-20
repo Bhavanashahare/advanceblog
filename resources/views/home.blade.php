@@ -43,60 +43,43 @@
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href=""><img class="card-img-top" src="{{asset('uploads/'.$latests->image)}}" width="700px"  height="350" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2022</div>
-                            <h2 class="card-title">Featured Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                            <h2 class="card-title">{{$latests->title}}</h2>
+
+                            <p class="card-text">{!!$latests->description!!}</p>
                             <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
+
                     <div class="row">
+                        @foreach ($blogs as $blog)
                         <div class="col-lg-6">
                             <!-- Blog post-->
+
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+
+                                <a href="#!"><img class="card-img-top" src="{{asset('uploads/'.$blog->image)}}" width="600px"  height="350"alt="..." /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">January 1, 2022</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                                    <h2 class="card-title h4">{{$blog->title}}</h2>
+                                    <p class="card-text">{!!$blog->description!!}</p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
+
                                 </div>
+
+
+
                             </div>
+
                             <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2022</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
+
                         </div>
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2022</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2022</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                     <!-- Pagination-->
                     <nav aria-label="Pagination">
@@ -126,24 +109,22 @@
                     </div>
                     <!-- Categories widget-->
                     <div class="card mb-4">
-
                         <div class="card-header">Categories</div>
-
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
+                                    @foreach($categories as $d)
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="#!">{{$d->name}}</a></li>
 
-                                     <ul class="list-unstyled mb-0">
-                                        @foreach ($category as $cat )
-                                        <li><a href="#!"> {{$cat->name}}</a></li>
-
-                                        @endforeach
                                     </ul>
+                                    @endforeach
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
 
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                     <!-- Side widget-->

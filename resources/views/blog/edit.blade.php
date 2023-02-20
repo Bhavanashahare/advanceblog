@@ -48,7 +48,41 @@
         <label for="image">Image</label>
         <input type="file" class="form-control" id="image" placeholder="Enter image" name="image">
       </div>
-    <button type="submit" class="btn btn-default">update</button>
+      {{-- <div class="form-group">
+        <label for="exampleFormControlSelect2">choose category</label>
+        <select name="category_id" id="cars">
+
+            @foreach ($category as $d)
+            <option value="{{$d->id}}">{{ $d->name }}</option>
+            @endforeach
+
+        </select>
+      </div> --}}
+
+      <div class="mb-3 col-md-12">
+        <label class="form-label" for="category_id">Choose a category<span class="text-danger">
+                *</span></label>
+        <select class="form-control" name="category_id">
+            <option selected="" disabled="">Choose a category</option>
+            @foreach ($category as $d)
+                <option {{ $d['id'] == $blog['category_id'] ? 'selected' : '' }}
+                    value="{{ $d['id'] }}">{{ $d['name'] }}</option>
+            @endforeach
+        </select>
+    </div>
+
+</div>
+
+<br>
+<br>
+<div class="container">
+
+    <input type="submit" class="btn btn-info" value="Submit Button">
+  </div>
+
+
+
+
     <script>
         ClassicEditor
             .create( document.querySelector( '#description' ) )

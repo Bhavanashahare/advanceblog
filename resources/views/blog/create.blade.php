@@ -22,7 +22,7 @@
       </ul>
   </div>
 @endif
-  <form action="{{route('blog.store')}}" method="post"  enctype="multipart/form-data>
+  <form action="{{route('blog.store')}}" method="post"  enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="title">title</label>
@@ -31,7 +31,7 @@
 
     <div class="form-group">
         <label for="description">description</label>
-        <input type="text" class="form-control" id="description" placeholder="Enter description" name="description">
+        <textarea type="text" class="form-control" id="description" placeholder="Enter description" name="description"></textarea>
       </div>
 
 
@@ -39,6 +39,18 @@
         <label for="image">Image</label>
         <input type="file" class="form-control" id="image" placeholder=" image" name="image">
       </div>
+
+       <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="category_id">
+            @foreach($categories as $category)
+          <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select>
+        </select>
+      </div>
+
+
     <button type="submit" class="btn btn-default">Submit</button>
     <script>
         ClassicEditor
@@ -48,8 +60,7 @@
             } );
     </script>
 
-
-  </form>
+</form>
 </div>
 
 </body>
