@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title></title>
+  <title>Trash</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -13,9 +13,8 @@
 <div class="container">
   <h2>table</h2>
 
-<button class="btn btn-success"><a href="{{route('category.create')}}">Create</a></button>
-<button class="btn btn-danger"><a href="{{route('category.trash')}}">go to trash</button></a>
-
+<button class="btn btn-success"><a href="{{route('category.create')}}">Create</button></a>
+<button class="btn btn-danger"><a href="{{route('category.table')}}">customer view</button></a>
   <table class="table table-striped">
 
     <thead>
@@ -33,15 +32,16 @@
             <td>{{$d->id}}</td>
             <td>{{$d->name}}</td>
 
-             <td><a href="{{route('category.edit',$d->id)}}"><button type="button" class="btn btn-success">edit</button>
-            <a href="{{route('category.delete',$d->id)}}"><button type="button" class="btn btn-danger">trash</button></a></td>
+             <td><a href="{{route('category.restore',$d->id)}}"><button type="button" class="btn btn-success">restore</button>
+            <a href="{{route('category.force-delete',$d->id)}}"><button type="button" class="btn btn-danger">delete</button></a></td>
+
 
 </td>
         </tr>
 @endforeach
     </tbody>
   </table>
-  {{$category->links()}}
+
 
 </div>
 

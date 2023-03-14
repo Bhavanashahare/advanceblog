@@ -40,9 +40,30 @@ class CategoryController extends Controller
         return redirect()->route('category.table');
     }
     public function delete($id){
-        
+
      $category=Category::find($id);
      $category->delete();
      return redirect()->route('category.table');
     }
-}
+
+    public function forceDelete($id){
+
+        $category=Category::withTrashed()->find($id);
+        $category->forceDelete();
+        return redirect()->route('category.table');
+       }
+
+
+
+    public function restore($id){
+
+        $category=Category::withTrashed()->find($id);
+        $category->restore();
+        return redirect()->route('category.table');
+       }
+    public function trash(){
+        $category=Category::onlyTrashed()->get();
+        $category=compact('category');
+         return view('trash')->with ($category);
+    }
+    }

@@ -24,7 +24,7 @@ class BlogController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required'
+
         ]);
         $blog = new Blog();
         $blog->title = $request->title;
@@ -39,6 +39,8 @@ class BlogController extends Controller
             $blog->image = $filename;
         }
         $blog->save();
+
+return redirect()->route('blog.table');
     }
 
     public function table()

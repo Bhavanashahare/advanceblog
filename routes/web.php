@@ -28,6 +28,12 @@ Route::get('category/edit/{id}',[CategoryController::class,'edit'])->name('categ
 Route::post('category/update/{id}',[CategoryController::class,'update'])->name('category.update');
 
 Route::get('category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+Route::get('category/force-delete/{id}',[CategoryController::class,'forceDelete'])->name('category.force-delete');
+
+Route::get('category/trash',[CategoryController::class,'trash'])->name('category.trash');
+Route::get('category/restore/{id}',[CategoryController::class,'restore'])->name('category.restore');
+
+
 
 //BLOGcONTROLLER
 Route::get('blog/create',[BlogController::class,'create'])->name('blog.create');
@@ -42,4 +48,16 @@ Route::get('blog/delete/{id}',[BlogController::class,'delete'])->name('blog.dele
 //frontController
 
 
-Route::get('index',[FrontController::class,'index'])->name('index');
+Route::get('/',[FrontController::class,'index'])->name('index');
+Route::get('blog/detail/{id}',[FrontController::class,'detail'])->name('detail');
+
+
+Route::get('master',[FrontController::class,'master'])->name('master');
+
+Route::get('dashbord',[FrontController::class,'dashbord'])->name('dashbord');
+Route::get('home',[FrontController::class,'home'])->name('home');
+
+
+Route::get('about',[FrontController::class,'about'])->name('about');
+Route::get('contact',[FrontController::class,'contact'])->name('contact');
+
